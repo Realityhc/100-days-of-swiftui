@@ -107,7 +107,7 @@ var month = Months.March
 month = .April
 month = .July
 
-// MARK: - Day 3 Challenge: Система досвіду
+// MARK: - Day 3 Challenge: Система інвентарю
 var inventory = ["Зілля здоров'я": 5, "Кристали мани": 10]
 inventory["Слиз слайма"] = 3
 inventory["Зілля здоров'я", default: 0] -= 1
