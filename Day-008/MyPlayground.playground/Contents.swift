@@ -103,7 +103,7 @@ func findSquareRoot(of number: Int) throws -> Int {
 }
 
 // 3. Безпечно тестуємо функцію
-let numberToTest = 25 // спробуй потім змінити на -5 або 15
+let numberToTest = 100 // спробуй потім змінити на -5 або 15
 
 do {
     let result = try findSquareRoot(of: numberToTest)
