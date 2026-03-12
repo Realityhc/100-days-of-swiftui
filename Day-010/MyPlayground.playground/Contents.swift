@@ -68,7 +68,7 @@ print(archer2.vacationRemaining)
 
 struct Employee3 {
     let name: String
-    var vacationAllocated = 14
+    var vacationAllocated = 10
     var vacationTaken = 0
 
     var vacationRemaining: Int {
@@ -84,7 +84,125 @@ struct Employee3 {
 
 var archer3 = Employee3(name: "Sterling Archer", vacationAllocated: 14)
 archer3.vacationTaken += 4
+// приклад get
+print(archer3.vacationRemaining)
 archer3.vacationRemaining = 5
 print(archer3.vacationAllocated)
 
+struct Game {
+    var score = 0
+}
 
+var game = Game()
+game.score += 10
+print("Score is now \(game.score)")
+game.score -= 3
+print("Score is now \(game.score)")
+game.score += 1
+
+struct Game2 {
+    var score = 0 {
+        didSet {
+            print("Score is now \(score)")
+        }
+    }
+}
+
+var game2 = Game2()
+game2.score += 10
+game2.score -= 3
+game2.score += 1
+
+struct App {
+    var contacts = [String]() {
+        willSet {
+            print("Current value is: \(contacts)")
+            print("New value will be: \(newValue)")
+        }
+
+        didSet {
+            print("There are now \(contacts.count) contacts.")
+            print("Old value was \(oldValue)")
+        }
+    }
+}
+
+var app = App()
+app.contacts.append("Adrian E")
+app.contacts.append("Allen W")
+app.contacts.append("Ish S")
+
+// Як створити власні ініціалізатори
+struct Player {
+    let name: String
+    let number: Int
+}
+
+let player = Player(name: "Megan R", number: 15)
+
+struct Player2 {
+    let name: String
+    let number: Int
+
+    init(name: String, number: Int) {
+        self.name = name
+        self.number = number
+    }
+}
+
+//  Звісно, ​​наші користувацькі ініціалізатори не обов'язково повинні працювати так, як стандартний почленний ініціалізатор, який надає нам Swift. Наприклад, ми могли б сказати, що ви повинні вказати ім'я гравця, але номер футболки буде випадковим:
+
+struct Player3 {
+    let name: String
+    let number: Int
+
+    init(name: String) {
+        self.name = name
+        number = Int.random(in: 1...99)
+    }
+}
+
+let player3 = Player3(name: "Megan R")
+print(player3.number)
+
+
+
+// 🗡️ Day 10 Challenge: Гримуар Відьмочки
+
+struct WitchProfile {
+    let name: String
+    var baseMana: Int
+    
+    var level: Int {
+        didSet {
+            print("🎉 \(name) досягла \(level) рівня!")
+        }
+    }
+    
+    var totalMana: Int {
+        get {
+            baseMana * level
+        }
+    }
+    
+    // 3. Спеціальний ініціалізатор (Custom Init)
+    init(name: String, baseMana: Int) {
+        self.name = name
+        self.baseMana = baseMana
+        self.level = 1 // автоматично ставимо 1 рівень при створенні
+    }
+    
+    // 4. Метод мутації (Mutating Method)
+    mutating func levelUp() {
+        level += 1
+    }
+}
+
+// ⚔️ Тестуємо магію:
+var aura = WitchProfile(name: "Aura", baseMana: 50)
+
+print("Початкова мана: \(aura.totalMana)") // Виведе 50
+aura.levelUp() // Спрацює didSet і виведе: 🎉 Aura досягла 2 рівня!
+print("Нова мана: \(aura.totalMana)") // Виведе 100
+    
+    
