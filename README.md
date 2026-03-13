@@ -26,7 +26,7 @@
 | 8 | Значення за замовчуванням, помилки, checkpoint 4 | ✅ |
 | 9 | Closures (замикання), передача функцій | ✅ |
 | 10 | Structs, computed properties, property observers | ✅ |
-| 11 | Access control, static properties, checkpoint 6 | ⬜ |
+| 11 | Access control, static properties, checkpoint 6 | ✅ |
 | 12 | Classes, наслідування, checkpoint 7 | ⬜ |
 | 13 | Protocols, extensions, checkpoint 8 | ⬜ |
 | 14 | Optionals, nil coalescing, checkpoint 9 | ⬜ |
@@ -143,8 +143,8 @@
 
 ## 📈 Статистика
 - **Початок:** _[27.02.2026]_
-- **Поточний день:** 11/101
-- **Серія днів без пропуску:** _14_
+- **Поточний день:** 12/101
+- **Серія днів без пропуску:** _15_
 
 ---
 
