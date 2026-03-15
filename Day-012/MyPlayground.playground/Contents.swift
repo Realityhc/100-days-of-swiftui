@@ -19,6 +19,7 @@ class Employee {
     init(hours: Int) {
         self.hours = hours
     }
+    
     func printSummary() {
         print("I work \(hours) hours a day.")
     }
@@ -88,19 +89,65 @@ class Truck: Vehicle2 {
     }
 }
 
-//class Computer {
-  //  var cpu: String
-    //var ramGB: Int
-    //init(cpu: String, ramGB: Int) {
-      //  cpu = cpu
-    //    ramGB = ramGB
-  //  }
-//}
-//class Laptop: Computer {
-  //  var screenInches: Int
-    //init(screenInches: Int, cpu: String, ramGB: //Int) {
-        //self.screenInches = screenInches
-        //super.init(cpu: cpu, ramGB: ramGB)
-  //  }
-//}
+class User {
+    var username = "Anonymous"
+}
+var user1 = User()
 
+var user2 = user1
+user2.username = "Taylor"
+
+print(user1.username)
+print(user2.username)
+
+//  Якщо ви хочете створити унікальну копію екземпляра класу – іноді її називають глибокою копією – вам потрібно безпечно обробити створення нового екземпляра та скопіювати всі ваші дані. У нашому випадку це просто:
+
+class User3 {
+    var username = "Anonymous"
+
+    func copy() -> User {
+        let user = User()
+        user.username = username
+        return user
+    }
+}
+
+//  Тепер ми можемо безпечно викликати copy(), щоб отримати об'єкт з тими ж початковими даними, але будь-які майбутні зміни не вплинуть на оригінал. В цьому випадкуу рядок 97 var user2 = user1 потрібно замінити на var user2 = user1.copy()
+
+class User4 {
+    let id: Int
+    init(id: Int) {
+        self.id = id
+        print("User \(id): Create!")
+    }
+        deinit {
+            print("User \(id): Clear!")
+    }
+}
+
+for i in 1...3 {
+    let user4 = User4(id: i)
+    print("User \(user4.id): I'm checking the situation.")
+}
+
+//  Наприклад, якби ми додавали наші User екземпляри в міру їх створення, вони б очищувались черещ деініціалізатор лише після очищення масиву:
+
+var users = [User4]()
+
+for i in 1...3 {
+    let user = User4(id: i)
+    print("User \(user.id): I'm checking the situation.")
+    users.append(user)
+}
+
+print("Loop is finished!")
+users.removeAll()
+print("Array is clear!")
+
+class User2 {
+    var name = "Gyao"
+}
+
+let user = User2()
+user.name = "Misty"
+print(user.name)
