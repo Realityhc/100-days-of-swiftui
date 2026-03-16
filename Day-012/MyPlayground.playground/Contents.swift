@@ -145,9 +145,98 @@ users.removeAll()
 print("Array is clear!")
 
 class User2 {
-    var name = "Gyao"
+    var name = "Paul"
 }
 
-let user = User2()
-user.name = "Misty"
+var user = User2()
+user.name = "Taylor"
+user = User2()
 print(user.name)
+
+// Checkpoint 7
+class Animal {
+    var legs: Int
+    
+    init(legs: Int) {
+        self.legs = legs
+    }
+    
+    func speak() {
+        print("animal sound")
+    }
+}
+
+class Dog: Animal {
+    init() {
+        super.init(legs: 4)
+    }
+    
+    override func speak() {
+        print("Woof")
+    }
+}
+
+class Cat: Animal {
+    var isTame: Bool // 1. Додаємо властивість сюди
+    
+    // 2. Створюємо init, який вимагає вказати, чи приручений кіт
+    init(isTame: Bool) {
+        self.isTame = isTame // 3. Спочатку ставимо галочку для своєї властивості
+        super.init(legs: 4)  // 4. Потім просимо батька поставити галочку для ніг (у котів їх 4)
+    }
+    
+    override func speak() {
+        print("Meow")
+    }
+}
+
+class Corgi: Dog {
+    override func speak() {
+        print("WoofWoof")
+    }
+}
+    class Poodle: Dog {
+        override func speak() {
+            print("WooOooOf")
+        }
+    }
+    class Persian : Cat {
+        override func speak() {
+            print("Meoooow")
+        }
+    }
+    class Lion : Cat {
+        override func speak() {
+            print("MeooOooOow")
+        }
+}
+
+let myCorgi = Corgi()
+myCorgi.speak() // Виведе "WoofWoof"
+
+let kingLion = Lion(isTame: false)
+kingLion.speak() // Виведе "MeooOooOow"
+
+// 🗡️ Day 12 Challenge: Академія Фамільярів
+
+class Familiar {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+    
+    func castSpell() {
+        print("✨ \(name) чаклує базове заклинання!")
+    }
+}
+
+class DragonFamiliar: Familiar {
+    override func castSpell() {
+        print("🔥 \(name) дихає вогнем!")
+    }
+}
+
+let spirit = Familiar(name: "Каспер")
+let spyro = DragonFamiliar(name: "Спайро")
+spirit.castSpell()
+spyro.castSpell()
