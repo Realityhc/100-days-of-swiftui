@@ -28,7 +28,7 @@
 | 10 | Structs, computed properties, property observers | ✅ |
 | 11 | Access control, static properties, checkpoint 6 | ✅ |
 | 12 | Classes, наслідування, checkpoint 7 | ✅ |
-| 13 | Protocols, extensions, checkpoint 8 | ⬜ |
+| 13 | Protocols, extensions, checkpoint 8 | ✅ |
 | 14 | Optionals, nil coalescing, checkpoint 9 | ⬜ |
 
 ### Дні 16-24: Початок SwiftUI
@@ -143,8 +143,8 @@
 
 ## 📈 Статистика
 - **Початок:** _[27.02.2026]_
-- **Поточний день:** 13/101
-- **Серія днів без пропуску:** _18_
+- **Поточний день:** 14/101
+- **Серія днів без пропуску:** _20_
 
 ---
 
