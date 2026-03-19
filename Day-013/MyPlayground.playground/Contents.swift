@@ -198,7 +198,6 @@ protocol Building {
     func printSalesSummary()
 }
 
-// структура будинку
 struct House: Building {
     var rooms: Int
     var cost: Int
@@ -209,7 +208,6 @@ struct House: Building {
     }
 }
 
-// структура офісу
 struct Office: Building {
     var rooms: Int
     var cost: Int
