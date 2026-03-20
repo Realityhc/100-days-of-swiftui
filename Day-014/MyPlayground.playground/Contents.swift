@@ -118,3 +118,57 @@ print(number2)
 
 let planetNumber: Int? = 426
 var destination = planetNumber ?? 3
+
+//  Як обробляти кілька необов'язкових елементів за допомогою ланцюжка необов'язкових елементів
+
+let names = ["Arya", "Bran", "Robb", "Sansa"]
+let chosen = names.randomElement()?.uppercased() ?? "No one"
+print("Next in line: \(chosen)")
+
+struct Book2 {
+    let title: String
+    let author: String?
+}
+
+var book2: Book2? = nil
+let author2 = book2?.author?.first?.uppercased() ?? "A"
+print(author2)
+
+//  Як обробляти збій функції з опціональними елементами
+
+enum UserError: Error {
+    case badID, networkFailed
+}
+
+func getUser(id: Int) throws -> String {
+    throw UserError.networkFailed
+}
+
+if let user = try? getUser(id: 23) {
+    print("User: \(user)")
+    //  Ось тут і try?допомагає: він getUser()повертає необов'язковий рядок, який буде дорівнювати nil, якщо виникнуть помилки. Якщо ви хочете точно знати, яка помилка сталася, то цей підхід не буде корисним, але найчастіше нам це просто байдуже. Якщо хочете, можете поєднати це try?з nil coalescing, що означає «спробувати отримати повернене значення від цієї функції, але якщо це не вдасться, використовувати це значення за замовчуванням».
+}
+//  Будьте обережні: перед об'єднанням nil потрібно додати кілька дужок, щоб Swift точно зрозумів, що ви маєте на увазі. Наприклад, ви б написали так:
+
+let user = (try? getUser(id: 23)) ?? "Anonymous"
+print(user)
+
+// Checkpoint 9
+
+func getRandomNumber(from array: [Int]?) -> Int {
+    array?.randomElement() ?? Int.random(in: 1...100)
+}
+
+print(getRandomNumber(from: [10, 20, 30]))
+print(getRandomNumber(from: nil))
+print(getRandomNumber(from: []))
+
+// 🗡️ Day 14 Challenge: Фінальний акорд (Привітання користувача)
+
+func greetUser(name: String?) -> String {
+    "Привіт, \(name ?? "Гість")!"
+}
+
+print(greetUser(name: "Амо")) // має вивести: Привіт, Амо!
+print(greetUser(name: nil))   // має вивести: Привіт, Гість!
+
