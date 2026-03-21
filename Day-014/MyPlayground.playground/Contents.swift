@@ -171,4 +171,3 @@ func greetUser(name: String?) -> String {
 
 print(greetUser(name: "Амо")) // має вивести: Привіт, Амо!
 print(greetUser(name: nil))   // має вивести: Привіт, Гість!
-
