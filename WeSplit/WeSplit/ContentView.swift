@@ -16,20 +16,14 @@ struct ContentView: View {
     var totalAmount: Double {
         let tipSelection = Double(tipPercentage)
         let tipValue = checkAmount / 100 * tipSelection
-        let grandTotal = checkAmount + tipValue
         
-        return grandTotal
+        return checkAmount + tipValue
     }
     
     var totalPerPerson: Double {
         let peopleCount = Double(numberOfPeople + 2)
-        let tipSelection = Double(tipPercentage)
         
-        let tipValue = checkAmount / 100 * tipSelection
-        let grandTotal = checkAmount + tipValue
-        let amountPerPerson = grandTotal / peopleCount
-        
-        return amountPerPerson
+        return totalAmount / peopleCount
     }
     
     var body: some View {
@@ -78,5 +72,7 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(\.colorScheme, .light)
+        //.preferredColorScheme(.dark)
 }
 
